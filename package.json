@@ -1,0 +1,23 @@
+{
+  "name": "hexo-tag-yelp",
+  "version": "1.0.0",
+  "description": "Yelp tag for hexo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hexo",
+    "yelp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtreul/hexo-tag-yelp.git"
+  },
+  "author": "Derrick Treul <treul004@umn.edu> (https://github.com/dtreul)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dtreul/hexo-tag-yelp/issues"
+  },
+  "homepage": "https://github.com/dtreul/hexo-tag-yelp#readme"
+}
