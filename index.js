@@ -12,8 +12,8 @@ hexo.extend.tag.register('yelp', function (args) {
   var base_url = 'https://api.yelp.com/v3/businesses/';
   var business_id = args[0];
   // var business_id = 'fun';
-  var config = hexo.config.yelp || ''
-  var key config.key;
+  var config = hexo.config.yelp || '';
+  var key = config.key;
   // var key = 'a';
   if (key == '') {
     return;
