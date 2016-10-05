@@ -1,6 +1,6 @@
 {
   "name": "hexo-tag-yelp",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Yelp tag for hexo",
   "main": "index.js",
   "scripts": {
