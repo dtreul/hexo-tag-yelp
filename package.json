@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/dtreul/hexo-tag-yelp/issues"
   },
-  "homepage": "https://github.com/dtreul/hexo-tag-yelp#readme"
+  "homepage": "https://github.com/dtreul/hexo-tag-yelp#readme",
+  "dependencies": {
+    "jQuery": "^1.7.2"
+  }
 }
