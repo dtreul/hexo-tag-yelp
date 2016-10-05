@@ -4,81 +4,58 @@
  *
 */
 
-// var $ = require('jQuery');
-// var http = require('http');
-// var Promise = require('bluebird');
-// var request = require('request');
-// var async = require('async');
-var rp = require('request-promise');
-// var config = hexo.config.yelp || {};
+var request = require('sync-request'),
+    _ = require('underscore'),
+    fs = require('fs'),
+    path = require('path');
 
-// var Yelp = require('yelp');
-// var key = config.key
-
-// var promiseRequest = function (bus_id) {
-//   return new Promise(function (resolve, reject) {
-
-//   })
-// }
-
+var file_path = path.join(__dirname, 'yelp-template.html');
 
 hexo.extend.tag.register('yelp', function (args) {
+
+  var template = fs.readFileSync(file_path).toString();
   var business_id = args[0];
   var base_url = 'https://api.yelp.com/v3/businesses/';
-  // var business_id = 'fun';
   var config = hexo.config.yelp || '';
   if (config == '') {
     return;
   }
 
-  // console.log(config);
-
-  // var key = 'a';
-  // var business_data = {};
-  // var yelp = new Yelp({
-  //   consumer_key: config.consumer_key,
-  //   consumer_secret: config.consumer_secret,
-  //   token: config.token,
-  //   token_secret: config.token_secret
-  // })
-
-  // return yelp.business(business_id).then(function (data) { Promise.resolve(data);});
-
   var business_url = base_url + business_id;
 
   var options = {
-    url: business_url,
     headers: {
       "Authorization": "Bearer " + config.key
-    },
-    json: true
+    }
   };
 
+  var res = request('GET', business_url, options);
+  var business_data =  JSON.parse(res.getBody());
+
+  var loc = "";
+  loc += business_data.location.address1;
+  loc += business_data.location.address2;
+  loc += business_data.location.address3;
+  loc += " ";
+  loc += business_data.location.city;
+  loc += ", ";
+  loc += business_data.location.state;
+  loc += ", "
+  loc += business_data.location.zip_code;
 
 
-  var p =  rp(options)
-    .then(function (r) {
-       return Promise.resolve(r);
-    });
+  return _.template(template)({
+    name: business_data.name,
+    image_url: business_data.image_url,
+    price: business_data.price,
+    rating: business_data.rating,
+    review_count: business_data.review_count,
+    phone: business_data.phone,
+    location: loc,
+    url: business_data.url
+  });
 
-  // return p;
-  // var business_data;
-  // function callback(error, response, body) {
-  //   if (!error && response.statusCode == 200) {
-  //     // console.log(response);
-  //     // console.log(body);
-  //     console.log(body);
-  //     return body;
-  //     // console.log(business_data)
-  //   } else {
-  //     return {};
-  //   }
-  // }
-  // return request(options, callback);
-  // console.log(business_data);
-  // console.log(business_data.name);
-  // return business_data;
 
-}, {async: true});
+});
 
 

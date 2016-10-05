@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/dtreul/hexo-tag-yelp#readme",
   "dependencies": {
-    "request": "^2.75.0",
-    "request-promise": "^4.1.1"
+    "sync-request": "^3.0.1",
+    "underscore": "^1.8.3",
+    "path": "^0.12.7"
   }
 }
