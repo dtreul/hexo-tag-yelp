@@ -1,17 +1,10 @@
-<div class="card">
-  <img class="card-img-top" src="<%- image_url %>" alt="">
-  <div class="card-block">
-    <h4 class="card-title"><%-name %></h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">Location: <%- location %></li>
-    <li class="list-group-item">Price: <%- price%></li>
-    <li class="list-group-item">Rating: <%- rating %></li>
-    <li class="list-group-item">Number of Reviews: <%- review_count %></li>
-    <li class="list-group-item">Phone: <%- phone %></li>
-  </ul>
-  <div class="card-block">
-    <a href="<%- url %>" class="card-link">Visit on Yelp!</a>
-  </div>
-</div>
+<ul class="list-group list-group-flush yelp-list">
+  <li class="list-group-item yelp-item">Name: <%- name %></li>
+  <li class="list-group-item yelp-item"">Location: <%- location %></li>
+  <li class="list-group-item yelp-item"">Price: <%- price%></li>
+  <li class="list-group-item yelp-item"">Rating: <%- rating %></li>
+  <li class="list-group-item yelp-item"">Number of Reviews: <%- review_count %></li>
+  <li class="list-group-item yelp-item"">Phone: <%- phone %></li>
+  <li class="list-group-item yelp-item""><a href="<%- url %>">Visit on Yelp!</a></li>
+  
+</ul>

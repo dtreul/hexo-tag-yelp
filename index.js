@@ -46,7 +46,6 @@ hexo.extend.tag.register('yelp', function (args) {
 
   return _.template(template)({
     name: business_data.name,
-    image_url: business_data.image_url,
     price: business_data.price,
     rating: business_data.rating,
     review_count: business_data.review_count,
