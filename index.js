@@ -40,7 +40,6 @@ function yelp(business_id) {
   loc += business_data.location.state;
   loc += ", "
   loc += business_data.location.zip_code;
-  console.log(business_data);
 
   return _.template(template)({
     name: business_data.name,
