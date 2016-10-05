@@ -1,5 +1,6 @@
 ## About
-A hexo tag plugin to embed yelp businesses in posts/pages  
+A hexo tag plugin to embed yelp businesses in posts/pages.  
+Also works as a helper for layouts.   
 ![Sample image](/sample.png)
 
 ## Installation
@@ -25,6 +26,7 @@ Get a [yelp token here.](https://www.yelp.com/developers/documentation/v3/get_st
 Also, you must contain bootstrap somewhere in your project for the styling to be correct.
 
 ## Usage
+### Tag
 ```
 {% yelp [business_id] %}
 ```
@@ -32,3 +34,16 @@ Example:
 ```
 {% yelp mcdonalds-minneapolis-46 %}
 ```
+### Helper
+```
+{%- yelp("business_id") %} 
+```
+Example:
+```
+{%- yelp("mcdonalds-minneapolis-46") %}
+```
+OR:
+```
+{%- yelp(post.yelp_id) %}
+```
+If you put yelp_id in the posts front-matter

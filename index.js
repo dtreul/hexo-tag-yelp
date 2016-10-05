@@ -11,10 +11,8 @@ var request = require('sync-request'),
 
 var file_path = path.join(__dirname, 'yelp-template.html');
 
-hexo.extend.tag.register('yelp', function (args) {
-
+function yelp(business_id) {
   var template = fs.readFileSync(file_path).toString();
-  var business_id = args[0];
   var base_url = 'https://api.yelp.com/v3/businesses/';
   var config = hexo.config.yelp || '';
   if (config == '') {
@@ -42,7 +40,7 @@ hexo.extend.tag.register('yelp', function (args) {
   loc += business_data.location.state;
   loc += ", "
   loc += business_data.location.zip_code;
-
+  console.log(business_data);
 
   return _.template(template)({
     name: business_data.name,
@@ -53,8 +51,14 @@ hexo.extend.tag.register('yelp', function (args) {
     location: loc,
     url: business_data.url
   });
+}
 
 
+hexo.extend.tag.register('yelp', function (args) {
+  return yelp(args[0]);
 });
 
 
+hexo.extend.helper.register('yelp', function(business_id) {
+  return yelp(business_id);
+})
